@@ -1,0 +1,146 @@
+---
+title: "Initial_Results"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Myopic
+
+```{r}
+library(ggplot2)
+library(tidyr)
+
+test_data <-
+  data.frame(
+    Paper_Myopic = c(0.15, 0.25, 0.32, 0.42, 0.5),
+    My_Myopic =  c(0.31, 0.47, 0.56, 0.65, 0.65),
+    Screening_Capacity = c(10, 20, 30, 40, 50)
+  )
+
+test_data %>%
+  gather(key,value, Paper_Myopic, My_Myopic) %>%
+  ggplot(aes(x=Screening_Capacity, y=value, colour=key)) +
+  geom_line() +
+  ggtitle("Myopic Policy Early Detection")
+
+test_data2 <-
+  data.frame(
+    Paper_Myopic = c(0.08, 0.075, 0.07, 0.065, 0.065),
+    My_Myopic =  c(0.2, 0.18, 0.16, 0.13, 0.11),
+    Screening_Capacity = c(10, 20, 30, 40, 50)
+  )
+
+test_data2 %>%
+  gather(key,value, Paper_Myopic, My_Myopic) %>%
+  ggplot(aes(x=Screening_Capacity, y=value, colour=key)) +
+  geom_line() +
+  ggtitle("Myopic Policy Screening Rate")
+
+```
+
+## Interval
+
+```{r}
+library(ggplot2)
+library(tidyr)
+
+test_data <-
+  data.frame(
+    Paper_Interval = c(0.19, 0.33, 0.45, 0.51, 0.62),
+    My_Interval =  c(0.51, 0.54, 0.61, 0.62, 0.74),
+    Screening_Capacity = c(10, 20, 30, 40, 50)
+  )
+
+test_data %>%
+  gather(key,value, Paper_Interval, My_Interval) %>%
+  ggplot(aes(x=Screening_Capacity, y=value, colour=key)) +
+  geom_line() +
+  ggtitle("Interval Policy Early Detection")
+
+
+test_data2 <-
+  data.frame(
+    Paper_Interval = c(0.145, 0.14, 0.13, 0.12, 0.11),
+    My_Interval =  c(0.21, 0.20, 0.20, 0.19, 0.18),
+    Screening_Capacity = c(10, 20, 30, 40, 50)
+  )
+
+test_data2 %>%
+  gather(key,value, Paper_Interval, My_Interval) %>%
+  ggplot(aes(x=Screening_Capacity, y=value, colour=key)) +
+  geom_line() +
+  ggtitle("Interval Policy Screening Rate")
+
+```
+
+## Greedy
+
+```{r}
+library(ggplot2)
+library(tidyr)
+
+test_data <-
+  data.frame(
+    Paper_Greedy = c(0.19, 0.36, 0.47, 0.53, 0.62),
+    My_Greedy =  c(0.37, 0.52, 0.57, 0.58, 0.66),
+    Screening_Capacity = c(10, 20, 30, 40, 50)
+  )
+
+test_data %>%
+  gather(key,value, Paper_Greedy, My_Greedy) %>%
+  ggplot(aes(x=Screening_Capacity, y=value, colour=key)) +
+  geom_line() +
+  ggtitle("Greedy Policy Early Detection")
+
+test_data2 <-
+  data.frame(
+    Paper_Greedy = c(0.165, 0.15, 0.14, 0.13, 0.11),
+    My_Greedy =  c(0.33, 0.26, 0.24, 0.22, 0.15),
+    Screening_Capacity = c(10, 20, 30, 40, 50)
+  )
+
+test_data2 %>%
+  gather(key,value, Paper_Greedy, My_Greedy) %>%
+  ggplot(aes(x=Screening_Capacity, y=value, colour=key)) +
+  geom_line() +
+  ggtitle("Greedy Policy Screening Rate")
+```
+
+## Boltzmann
+```{r}
+library(ggplot2)
+library(tidyr)
+
+test_data <-
+  data.frame(
+    Paper_Boltzmann = c(0.25, 0.4, 0.5, 0.55, 0.63),
+    My_Boltzmann =  c(0.76, 0.70, 0.74, 0.74, 0.8),
+    Screening_Capacity = c(10, 20, 30, 40, 50)
+  )
+
+test_data %>%
+  gather(key,value, Paper_Boltzmann, My_Boltzmann) %>%
+  ggplot(aes(x=Screening_Capacity, y=value, colour=key)) +
+  geom_line() +
+  ggtitle("Boltzmann Policy Early Detection")
+
+
+test_data2 <-
+  data.frame(
+    Paper_Boltzmann = c(0.15, 0.14, 0.13, 0.12, 0.11),
+    My_Boltzmann =  c(0.07, 0.062, 0.08, 0.08, 0.08),
+    Screening_Capacity = c(10, 20, 30, 40, 50)
+  )
+
+test_data2 %>%
+  gather(key,value, Paper_Boltzmann, My_Boltzmann) %>%
+  ggplot(aes(x=Screening_Capacity, y=value, colour=key)) +
+  geom_line() +
+  ggtitle("Boltzmann Policy Screening Rate")
+```
+
+
+
